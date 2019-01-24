@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 //=======================================
-// pay Model data,All data cannot be null
+// Buy Model data,All data cannot be null
 // 支付时传的参数,参数不能为空
 //=======================================
 NS_ASSUME_NONNULL_BEGIN

@@ -79,6 +79,12 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
 -(void)QQLogin:(loginUserBlock)block;
 #endif
 /**
+ 游客登录
+ 
+ @param block 回调通知
+ */
+-(void)touristLogin:(loginUserBlock)block;
+/**
  显示登录界面（需要使用SDK的登录界面UI时调用）
 
  @param uc 当前界面所在的UIViewController
@@ -129,9 +135,8 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  检查用户状态，判断是否可以自动登录
 
  @param block 回调通知
- @return 内部使用
  */
--(BOOL)checkUserLoginState:(loginUserBlock)block;
+-(void)getUserLoginState:(loginUserBlock)block;
 /**
  退出登录
  */

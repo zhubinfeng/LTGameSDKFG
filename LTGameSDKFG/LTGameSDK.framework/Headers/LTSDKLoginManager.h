@@ -144,7 +144,7 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
 /**
  退出登录（清空信息弹出登录框）
  */
--(void)userLogoutToLoginUI:(UIViewController *)uc;
+-(void)userLogoutToLoginUI:(UIViewController *)uc withBlock:(loginUserBlock)block;
 /**
  设置用户协议和隐私条款连接
 

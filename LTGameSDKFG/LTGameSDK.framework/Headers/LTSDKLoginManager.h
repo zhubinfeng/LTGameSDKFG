@@ -138,9 +138,13 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  */
 -(void)getUserLoginState:(loginUserBlock)block;
 /**
- 退出登录
+ 退出登录(清空信息，不弹出登录框)
  */
 -(void)userLogout;
+/**
+ 退出登录（清空信息弹出登录框）
+ */
+-(void)userLogoutToLoginUI:(UIViewController *)uc;
 /**
  设置用户协议和隐私条款连接
 

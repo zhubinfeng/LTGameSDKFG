@@ -11,6 +11,11 @@
 // Buy Model data,All data cannot be null
 // 支付时传的参数,参数不能为空
 //=======================================
+typedef NS_ENUM(NSInteger,LTPayType)
+{
+    LTPayTypeDistribute = 0,
+    LTPayTypeDevelop,
+};
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsModel : NSObject
@@ -22,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nonnull) NSString *productId;
 ///
 @property (nonatomic, copy, nonnull) id custom;
+//支付类型（测试或者正式）
+@property (nonatomic,assign) NSInteger payType;
 
 @end
 

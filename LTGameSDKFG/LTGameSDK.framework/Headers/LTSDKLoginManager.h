@@ -23,7 +23,7 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param appId 应用ID
  @param appkey 应用Key
  */
--(void)registLTPlatformAppID:(NSString *)appId withAppkey:(NSString *)appkey;
+-(void)registLTPlatformAppID:(NSString *)appId withAppkey:(NSString *)appkey withUIViewController:(UIViewController *)uc;
 #if GOOGLE_FW
 /**
  google平台注册
@@ -90,7 +90,7 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param uc 当前界面所在的UIViewController
  @param block 回调通知
  */
--(void)showLoginManagerUI:(UIViewController *)uc withBlock:(loginUserBlock)block;
+-(void)showLoginManagerUI:(UIViewController *)uc withBlock:(loginUserBlock)block isShowGuestButton:(BOOL)isShowGuestButton;
 #pragma mark 手机号注册相关
 /**
  发送验证码
@@ -144,7 +144,7 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
 /**
  退出登录（清空信息弹出登录框）
  */
--(void)userLogoutToLoginUI:(UIViewController *)uc withBlock:(loginUserBlock)block;
+-(void)userLogoutToLoginUI:(UIViewController *)uc withBlock:(loginUserBlock)block isShowGuestButton:(BOOL)isShowGuestButton;
 /**
  设置用户协议和隐私条款连接
 

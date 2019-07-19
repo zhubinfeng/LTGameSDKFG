@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "LTUser.h"
-#define QQ_FW false
-#define WX_FW false
-#define GOOGLE_FW true
-#define FB_FW true
+
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^loginUserBlock)(LTUser *loginUser);
+typedef void(^userAgreeCallback)(void);
 @interface LTSDKLoginManager : NSObject
 +(LTSDKLoginManager *)sharedInstance;
 /**
@@ -24,7 +22,6 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param appkey 应用Key
  */
 -(void)registLTPlatformAppID:(NSString *)appId withAppkey:(NSString *)appkey withUIViewController:(UIViewController *)uc;
-#if GOOGLE_FW
 /**
  google平台注册
 
@@ -38,46 +35,12 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param block 回调通知
  */
 -(void)googleLoginGetLTID:(loginUserBlock)block;
-#endif
-
-#if FB_FW
 /**
  Facebook登录
 
  @param block 回调通知
  */
 -(void)facebookLogin:(loginUserBlock)block;
-#endif
-
-#if WX_FW
-/**
- 微信注册
-
- @param clientID 微信平台生成的应用ID
- */
--(void)registWeChatPlatform:(NSString *)clientID;
-/**
- 微信登录
-
- @param block 回调通知
- */
--(void)weChatLogin:(loginUserBlock)block;
-#endif
-
-#if QQ_FW
-/**
- QQ注册
-
- @param clientID QQ平台生成的应用ID
- */
--(void)registQQPlatform:(NSString *)clientID;
-/**
- QQ登录
-
- @param block 回调通知
- */
--(void)QQLogin:(loginUserBlock)block;
-#endif
 /**
  游客登录
  
@@ -91,46 +54,6 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param block 回调通知
  */
 -(void)showLoginManagerUI:(UIViewController *)uc withBlock:(loginUserBlock)block isShowGuestButton:(BOOL)isShowGuestButton;
-#pragma mark 手机号注册相关
-/**
- 发送验证码
-
- @param block 回调通知
- @param phoneNum 电话号码
- */
--(void)sendPhoneCode:(loginUserBlock)block withPhoneNumber:(NSString *)phoneNum;
-/**
- 手机号注册
-
- @param block 回调通知
- @param phoneNum 手机号
- @param authCode 验证码
- @param password 密码
- */
--(void)phoneRegist:(loginUserBlock)block withPhoneNumber:(NSString *)phoneNum withAuthCode:(NSString *)authCode withPassword:(NSString *)password;
-/**
- 手机号登录
-
- @param block 回调通知
- @param phoneNum 手机号
- @param password 密码
- */
--(void)phoneLogin:(loginUserBlock)block withPhoneNumber:(NSString *)phoneNum withPassword:(NSString *)password;
-/**
- 提交设备信息
-
- @param block 回调通知
- */
--(void)deviceInfo:(loginUserBlock)block;
-/**
- 重设密码
-
- @param block 回调通知
- @param phoneNum 手机号
- @param authCode 验证码
- @param password 密码
- */
--(void)resetPassword:(loginUserBlock)block withPhoneNumber:(NSString *)phoneNum withAuthCode:(NSString *)authCode withPassword:(NSString *)password;
 /**
  检查用户状态，判断是否可以自动登录
 
@@ -151,7 +74,7 @@ typedef void (^loginUserBlock)(LTUser *loginUser);
  @param userAgreement 用户协议网址
  @param privacy 隐私政策网址
  */
--(void)linkOfUserAgreement:(NSString *)userAgreement andPrivacyLine:(NSString *)privacy;
+-(void)linkOfUserAgreement:(NSString *)userAgreement andPrivacyLine:(NSString *)privacy agreePrivacyCallback:(userAgreeCallback)callback;
 
 /**
  用户是否同意了隐私政策和用户条款

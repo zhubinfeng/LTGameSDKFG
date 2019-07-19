@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LTSDKLoginManager.h"
+#import "LTUser.h"
+#import "LTPlayManager.h"
+#import "GoodsModel.h"
 //! Project version number for LTGameSDK.
 FOUNDATION_EXPORT double LTGameSDKVersionNumber;
 

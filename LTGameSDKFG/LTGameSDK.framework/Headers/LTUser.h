@@ -32,9 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 //乐推lt_uid_token
 @property (nonatomic,copy) NSString *LTUidToken;
 //用户登录操作返回结果（成功、失败、取消）
-@property (nonatomic,assign) NSInteger stateCode;
+@property (nonatomic,assign) LTStateCode stateCode;
 //用户类型
-@property (nonatomic,assign) NSInteger userType;
+@property (nonatomic,assign) LTUserType userType;
 //附带的一些消息
 @property (nonatomic,copy) NSString *message;
 //验证码（手机号注册时会用到）

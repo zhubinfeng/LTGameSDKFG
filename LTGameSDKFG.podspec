@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LTGameSDKFG"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Like this you can get LTGameSDKFG."
   s.description  = "This is a SDK for Third Login easy to user"
   s.homepage     = "https://github.com/zhubinfeng/LTGameSDKFG"
